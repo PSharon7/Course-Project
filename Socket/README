@@ -1,0 +1,76 @@
+a. Full name : 
+
+b. Student ID : 
+
+c. What I have done :
+	I have finished all the requirement in project description. Basically, I learned from Beej's guide to socket programming.I use the example code from Beej's from TCP client&server and UDP client&server.
+	In phase 1, all four server programs boot up. Also, client and monitor will boot up. They will establish TCP connections with AWS and client will send <LINK_ID>, <SIZE>, <POWER> to AWS. Both servers and clients will display relative information on the terminal.
+	In phase 2A, the AWS server will send selected input values to 3 back-servers, depending on their functionalities. AWS will send INPUT to serverA and serverB which are storage servers to get information from database. If there is a match, serverA or serverB will send the data back to AWS.
+	In phase 2B, once AWS get replies from both storage servers, it will check the reply and send information to client, monitor and serverC, which is a computing server. 
+	In phase 3, serverC would have the computation results ready. After operation, serverC will send result back to AWS and AWS will send result to monitor and client.
+	All information will display in terminal respectively.
+
+
+d. Code files :
+	There are 6 files(serverA.c, serverB.c, serverC.c, aws.c, monitor.c, client.c). 
+	serverA.c : storage server. 
+				receive the input from AWS using UDP; 
+				look up information from corresponding database; 
+				return found data or no data to AWS.
+	serverB.c : storage server. 
+				receive the input from AWS using UDP; 
+				look up information from corresponding database; 
+				return found data or no data to AWS.
+	serverC.c : computing server. 
+				receive the input from AWS using UDP;
+				compute result based on Shannon Theorem;
+				return result to AWS.
+	AWS.c :	TCP server and UDP client;
+			get information from client;
+			send input to serverA, B to get data from database using UDP;
+			send data to serverC to get result using UDP;
+			send all information to monitor;
+			send result back to client;
+	monitor.c : TCP client;
+				set up connection with AWS;
+				receive all the information from AWS;
+				display them in terminal;
+	client.c :  TCP client;
+			    get input from terminal and send it to AWS;
+			    receive result from AWS
+
+e. The format :
+	Message from Client to AWS consists of 3 packets. 
+		First contains the LINK_ID(int), 
+		second contains SIZE(int), 
+		third contains POWER(int).
+	Message from AWS to Client consists of 1 packet or 2 packets depending on whether there is a match: 
+		If there is a match, first packet is match(int) information and second packet is delay(double). 
+		If not, then just send the match(int) information.
+	Message from AWS to serverA consists of 1 packet, which contains the LINK_ID(int).
+	Message from serverA to AWS consists of 1 packet or 2 packets depending on whether there is a match in database_a: 
+		If there is a match, then serverA will send to AWS 2 packets : match(int) information and data(double[]) corresponding to LINK_ID. 
+		If not, then just send the match(int) information.
+	Message from AWS to serverB consists of 1 packet, which contains the LINK_ID(int).
+	Message from serverB to AWS consists of 1 packet or 2 packets depending on whether there is a match in database_b:  
+		If there is a match, then serverB will send to AWS 2 packets : match(int) information and data(double[]) corresponding to LINK_ID. 
+		If not, then just send the match(int) information.
+	Message from AWS to serverC consists of 4 packets. 
+		First contains the LINK_ID(int), 
+		second contains SIZE(int), 
+		third contains POWER(int), 
+		fourth contains the data(double[]).
+	Message from serverC to AWS consists of 3 packets. 
+		First contains the Transmission Time(double), 
+		second contains Propogation Time(double), 
+		third contains Delay(double).
+	Message from AWS to monitor consists of 4 or 7 packets:
+		First four packets are : LINK_ID(int), SIZE(int), POWER(int), match(int) information.
+		If there is a match : then there are 3 more packets: Transmission Time(double), Propogation Time(double), Delay(double).
+
+f. Idiosyncrasy : So far so good
+
+g. Reused code :
+	For the TCP setting up and UDP setting up, I use the example code from Beej's guide.
+	I identify them with comments;
+	Source: www.beej.us/guide/bgnet/html/multi/clientserver.html including server.c, client.c, talker.c, listener.c
