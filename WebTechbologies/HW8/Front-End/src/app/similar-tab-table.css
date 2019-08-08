@@ -1,0 +1,10 @@
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-dark-page {
+    background-color: black;
+    color: white;
+    border-radius: 0;
+}

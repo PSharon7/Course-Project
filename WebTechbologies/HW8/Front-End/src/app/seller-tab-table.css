@@ -1,0 +1,17 @@
+.popularity {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    font-size: 40px;
+}
+
+.popularity-text {
+    font-size: 12px;
+    position: absolute;
+    top: 22%;
+    left: 19%;
+}
+
+table tbody tr th {
+    white-space: nowrap!important;
+}

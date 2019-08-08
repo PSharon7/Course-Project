@@ -1,0 +1,79 @@
+<div *ngIf="this.webService.showResults" class="text-right">
+    <button [disabled]="this.webService.getItemDetailId===''" class="btn btn-light" (click)="this.webService.delayShowDetail();">
+        Detail<i class="material-icons icon">keyboard_arrow_right</i>
+    </button>
+</div>
+
+<div *ngIf="this.localService.getValue().length!==0; else notFound">
+
+    <!--<div *ngIf="this.webService.showResults" class="text-right">-->
+        <!--<button [disabled]="this.webService.getItemDetailId===''" class="btn btn-light" (click)="this.webService.delayShowDetail();">-->
+            <!--Detail<i class="material-icons icon">keyboard_arrow_right</i>-->
+        <!--</button>-->
+    <!--</div>-->
+
+    <div class="table-responsive pl-2 pr-2">
+        <table class="table table-dark table-striped table-hover mt-2 mb-2 w-100">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Shipping</th>
+            <th>Seller</th>
+            <th>Wish List</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let item of this.localService.value; let i = index" [attr.data-index]="i"
+            ngClass="{{this.webService.getItemDetailId===item.itemId? 'detailItemBg':''}}" >
+            <td>{{i+1}}</td>
+            <td><img class="itemImg" src="{{item.image}}"></td>
+            <td>
+                <button *ngIf="item.title.length <= 35; else other" class="btn btn-link" mat-button  (click)="this.itemDetail(item.itemId, item)">{{item.title}}</button>
+                <ng-template #other>
+                    <button class="btn btn-link" [matTooltip]="item.title" mat-button (click)="this.itemDetail(item.itemId, item)">
+                        {{item.title.substring(0, 35)}}...
+                    </button>
+                </ng-template>
+
+            </td>
+            <td>{{item.price}}</td>
+            <td>{{item.shipping}}</td>
+            <td>{{item.seller}}</td>
+            <td>
+                <button class="btn btn-light" (click)="this.localService.modifyWishList(item.itemId, item)">
+                    <i *ngIf="this.localService.isWishList(item.itemId); else otherIcon" class="material-icons icon-shopping darkYellow">remove_shopping_cart</i>
+                    <ng-template #otherIcon>
+                        <i class="material-icons icon-shopping">add_shopping_cart</i>
+                    </ng-template>
+                </button>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Total Shopping</td>
+            <td>${{this.getTotalShopping() | number: '.2'}}</td>
+        </tr>
+
+        </tbody>
+
+
+    </table>
+    </div>
+</div>
+
+<ng-template #notFound>
+    <div class="row justify-content-center">
+        <div class="alert alert-warning col-11 mt-4" role="alert">
+            No Records.
+        </div>
+    </div>
+</ng-template>

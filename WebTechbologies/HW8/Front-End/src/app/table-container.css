@@ -1,0 +1,20 @@
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/*.btn-detail {*/
+    /*text-align: right;*/
+    /*margin-right: 45px;*/
+/*}*/
+
+.slideContainer {
+    width: 200%;
+    position: absolute;
+    overflow: hidden;
+}
+
+.slideDiv {
+    flex: 1;
+    position: relative;
+}

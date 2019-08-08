@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/tab2_progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tab2_progressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tab2_progressBar"
+            android:layout_marginTop="4dp"
+            android:text="@string/progress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tab2_progressBar" />
+
+        <TextView
+            android:id="@+id/tab2_alert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alert"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/tab2_soldByLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/soldby_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:contentDescription="@string/icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/truck" />
+
+            <TextView
+                android:id="@+id/tab2_soldBy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/tab2_soldTitle"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/soldby_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TableLayout
+                android:id="@+id/tab2_soldByTable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding6"
+                app:layout_constraintTop_toBottomOf="@+id/soldby_icon">
+
+                <TableRow
+                    android:id="@+id/tab2_soldByTableRow1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding6">
+
+                    <TextView
+                        android:id="@+id/tab2_storeName"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/padding40"
+                        android:paddingEnd="0dp"
+                        android:text="@string/tab2_storeName"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:id="@+id/tab2_storeNameContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/padding20"
+                        android:paddingEnd="@dimen/padding4"
+                        android:text="@string/text"
+                        android:textColor="@color/colorPrimatyFade" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tab2_soldByTableRow2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding8"
+                    android:paddingStart="@dimen/padding6"
+                    android:paddingEnd="@dimen/padding6">
+
+                    <TextView
+                        android:id="@+id/tab2_feedbackScore"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/padding40"
+                        android:paddingEnd="0dp"
+                        android:text="@string/tab2_feedbackScore"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:id="@+id/tab2_feedbackScoreContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/padding20"
+                        android:paddingEnd="@dimen/padding4"
+                        android:text="@string/text"
+                        android:textColor="@color/colorGray" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tab2_soldByTableRow3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding4"
+                    android:paddingStart="@dimen/padding6"
+                    android:paddingEnd="@dimen/padding6">
+
+                    <TextView
+                        android:id="@+id/tab2_popularity"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/padding40"
+                        android:paddingEnd="0dp"
+                        android:paddingTop="@dimen/padding2"
+                        android:text="@string/tab2_popularity"
+                        android:textColor="@color/colorBlack" />
+
+                    <com.wssholmes.stark.circular_score.CircularScoreView
+                        android:id="@+id/tab2_popularityContent"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="@dimen/padding20"
+                        app:score="50"
+                        app:setBackgroundColor="@color/colorBackground"
+                        app:setPrimaryColor="@color/colorOrange"
+                        app:setSecondaryColor="@color/colorBackground"
+                        app:setTextColor="@color/colorBlack" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tab2_soldByTableRow4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding6">
+
+                    <TextView
+                        android:id="@+id/tab2_feedbackStar"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/padding40"
+                        android:paddingEnd="0dp"
+                        android:text="@string/tab2_feedbackStar"
+                        android:textColor="@color/colorBlack" />
+
+                    <ImageView
+                        android:id="@+id/tab2_feedbackStarContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitStart"
+                        android:paddingStart="@dimen/padding20"
+                        android:paddingEnd="@dimen/padding4"
+                        android:contentDescription="@string/icon"
+                        app:srcCompat="@drawable/star_circle_outline" />
+
+                </TableRow>
+            </TableLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:id="@+id/tab2_line1"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorLine"
+            app:layout_constraintBottom_toTopOf="@+id/tab2_shippingLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tab2_soldByLayout" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/tab2_shippingLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="@dimen/padding6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tab2_line1">
+
+            <ImageView
+                android:id="@+id/shipping_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:contentDescription="@string/icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ferry" />
+
+            <TextView
+                android:id="@+id/tab2_shipping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/tab2_shippingTitle"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/shipping_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TableLayout
+                android:id="@+id/tab2_shippingTable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding6"
+                app:layout_constraintTop_toBottomOf="@+id/shipping_icon">
+
+                <TableRow
+                    android:id="@+id/tab2_shippingTableRow1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding6">
+
+                    <TextView
+                        android:id="@+id/tab2_cost"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/padding40"
+                        android:paddingEnd="0dp"
+                        android:text="@string/tab2_cost"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:id="@+id/tab2_costContent"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/padding20"
+                        android:paddingEnd="@dimen/padding4"
+                        android:text="@string/text"
+                        android:textColor="@color/colorGray" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tab2_shippingTableRow2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding6">
+
+                    <TextView
+                        android:id="@+id/tab2_global"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/padding40"
+                        android:paddingEnd="0dp"
+                        android:text="@string/tab2_global"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:id="@+id/tab2_globalContent"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/padding20"
+                        android:paddingEnd="@dimen/padding4"
+                        android:text="@string/text"
+                        android:textColor="@color/colorGray" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tab2_shippingTableRow3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding6">
+
+                    <TextView
+                        android:id="@+id/tab2_time"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/padding40"
+                        android:paddingEnd="0dp"
+                        android:text="@string/tab2_time"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:id="@+id/tab2_timeContent"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/padding20"
+                        android:paddingEnd="@dimen/padding4"
+                        android:text="@string/text"
+                        android:textColor="@color/colorGray" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tab2_shippingTableRow4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding6">
+
+                    <TextView
+                        android:id="@+id/tab2_condition"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/padding40"
+                        android:paddingEnd="0dp"
+                        android:text="@string/tab2_condition"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:id="@+id/tab2_conditionContent"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/padding20"
+                        android:paddingEnd="@dimen/padding4"
+                        android:text="@string/text"
+                        android:textColor="@color/colorGray" />
+                </TableRow>
+            </TableLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:id="@+id/tab2_line2"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorLine"
+            app:layout_constraintBottom_toTopOf="@id/tab2_returnLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tab2_shippingLayout" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/tab2_returnLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="@dimen/padding12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tab2_line2">
+
+            <ImageView
+                android:id="@+id/return_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:contentDescription="@string/icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/dump_truck" />
+
+            <TextView
+                android:id="@+id/tab2_return"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/tab2_returnTitle"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/return_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TableLayout
+                android:id="@+id/tab2_returnTable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding6"
+                app:layout_constraintTop_toBottomOf="@+id/return_icon">
+
+                <TableRow
+                    android:id="@+id/tab2_returnTableRow1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding6">
+
+                    <TextView
+                        android:id="@+id/tab2_policy"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/padding40"
+                        android:paddingEnd="0dp"
+                        android:text="@string/tab2_policy"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:id="@+id/tab2_policyContent"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/padding20"
+                        android:paddingEnd="@dimen/padding4"
+                        android:text="@string/text"
+                        android:textColor="@color/colorGray" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tab2_returnTableRow2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding6">
+
+                    <TextView
+                        android:id="@+id/tab2_returns"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/padding40"
+                        android:paddingEnd="0dp"
+                        android:text="@string/tab2_returns"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:id="@+id/tab2_returnsContent"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/padding20"
+                        android:paddingEnd="@dimen/padding4"
+                        android:text="@string/text"
+                        android:textColor="@color/colorGray" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tab2_returnTableRow3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding6">
+
+                    <TextView
+                        android:id="@+id/tab2_refund"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/padding40"
+                        android:paddingEnd="0dp"
+                        android:text="@string/tab2_refund"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:id="@+id/tab2_refundContent"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/padding20"
+                        android:paddingEnd="@dimen/padding4"
+                        android:text="@string/text"
+                        android:textColor="@color/colorGray" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tab2_returnTableRow4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding6">
+
+                    <TextView
+                        android:id="@+id/tab2_ship"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/padding40"
+                        android:paddingEnd="0dp"
+                        android:text="@string/tab2_ship"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:id="@+id/tab2_shipContent"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/padding20"
+                        android:paddingEnd="@dimen/padding4"
+                        android:text="@string/text"
+                        android:textColor="@color/colorGray" />
+                </TableRow>
+            </TableLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,25 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 33%;
+    max-width: 33%;
+    padding: 0 4px;
+}
+
+.photo-detail {
+    width: 100%;
+    border: 6px solid;
+    margin-top: 8px;
+    vertical-align: middle;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
