@@ -1,0 +1,78 @@
+<div *ngIf="this.webService.itemDetail!==undefined && this.webService.itemDetail.ack==='Success' && this.webService.itemDetail.seller!=={}; else notFound">
+
+   <table class="table table-dark table-striped w-100">
+      <tbody>
+         <tr *ngIf="this.webService.itemDetail.seller.userId != ''">
+            <td colspan="2"><h5 class="m-0 text-center">{{this.webService.itemDetail.seller.userId}}</h5></td>
+         </tr>
+
+         <tr *ngIf="this.webService.itemDetail.seller.feedbackScore != ''">
+            <th> Feedback Score</th>
+            <td>{{this.webService.itemDetail.seller.feedbackScore}}</td>
+         </tr>
+
+         <tr *ngIf="this.webService.itemDetail.seller.popularity != ''">
+            <th>Popularity</th>
+            <td>
+               <div class="popularity">
+                  <div class="popularity-text">{{this.webService.itemDetail.seller.popularity}}</div>
+                  <round-progress
+                          [current]="this.webService.itemDetail.seller.popularity"
+                          [max]="100"
+                          [color]="'#008000'"
+                          [radius]="15"
+                          [stroke]="2"
+                          [responsive]="true"
+                          [clockwise]="false"
+                  >
+                  </round-progress>
+               </div>
+            </td>
+         </tr>
+
+         <tr *ngIf="this.webService.itemDetail.seller.feedbackRatingStar != 'None' && this.webService.itemDetail.seller.feedbackScore > 9">
+            <th>Feedback Rating Star</th>
+            <td *ngIf="this.webService.itemDetail.seller.feedbackScore < 10000; else other">
+               <i class="{{this.getColorClass(this.webService.itemDetail.seller.feedbackScore)}}">star_border</i>
+            </td>
+            <ng-template #other>
+               <td>
+                  <i class="{{this.getColorClass(this.webService.itemDetail.seller.feedbackScore)}}">stars</i>
+               </td>
+            </ng-template>
+         </tr>
+
+         <tr *ngIf="this.webService.itemDetail.seller.topRatedSeller != ''">
+            <th>Top Rated</th>
+            <td>
+               <i *ngIf="this.webService.itemDetail.seller.topRatedSeller; else other" class="material-icons icon green">done</i>
+               <ng-template #other>
+                  <i class="material-icons icon red">close</i>
+               </ng-template>
+            </td>
+         </tr>
+
+         <tr *ngIf="this.webService.itemDetail.seller.storeName != ''">
+            <th>Store Name</th>
+            <td>{{this.webService.itemDetail.seller.storeName}}</td>
+         </tr>
+
+         <tr *ngIf="this.webService.itemDetail.seller.storeURL != ''">
+            <th>Buy Product At</th>
+            <td><a href="{{this.webService.itemDetail.seller.storeURL}}" target="_blank">Store</a></td>
+         </tr>
+
+
+
+      </tbody>
+   </table>
+
+</div>
+
+<ng-template #notFound>
+   <div class="row justify-content-center">
+      <div class="alert alert-warning col-10 mt-4" role="alert">
+         No Records.
+      </div>
+   </div>
+</ng-template>

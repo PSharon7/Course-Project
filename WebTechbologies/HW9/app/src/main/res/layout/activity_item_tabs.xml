@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ItemActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/item_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/item_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:fitsSystemWindows="false"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            />
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/item_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:tabIndicatorColor="#9E6CE5"
+            app:tabMode="fixed"
+            app:tabTextAppearance="@style/TitleTextSize"
+            app:tabSelectedTextColor="@color/colorWhite"
+            app:tabTextColor="@color/colorTab"
+            app:tabIconTint="@color/colorTab"
+            >
+
+        </android.support.design.widget.TabLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/tab_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/container4Tab_margin_top"
+        android:background="@color/colorBackground" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/wishList_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:backgroundTint="@color/colorOrange"
+        android:layout_marginEnd="@dimen/padding20"
+        android:layout_marginBottom="@dimen/padding20"
+        app:srcCompat="@drawable/cart_plus_btn" />
+
+</android.support.design.widget.CoordinatorLayout>

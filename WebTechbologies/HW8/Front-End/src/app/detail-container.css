@@ -1,0 +1,28 @@
+.detail-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.btn-fb {
+    width: 38px;
+    height: 38px;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-list {
+    text-align: left;
+}
+
+.btn-hover:hover {
+    border-color: #F1F0F1;
+}
+

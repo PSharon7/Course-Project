@@ -1,0 +1,90 @@
+<div *ngIf="this.webService.similarItemDetail!==undefined && this.webService.similarItemDetail.ack==='Success' && this.webService.similarItemDetail.item.length!==0; else notFound">
+
+   <div ngClass="{{this.webService.mobile ? 'col-md-4 mt-3 mb-3 p-0' : 'row col-md-4 mt-3 mb-3'}}">
+      <select class="form-control form-input col-12 col-md-5" name="sort" id="sort" (change)="this.changeOption($event.target.value)">
+         <option selected value="default">Default</option>
+         <option value="productName">Product Name</option>
+         <option value="dayLeft">Days Left</option>
+         <option value="price">Price</option>
+         <option value="shippingCost">Shipping Cost</option>
+      </select>
+
+      <select [disabled]="this.orderBy===''" class="form-control form-input col-12 col-md-5 offset-md-1" name="order" id="order" (change)="this.changeOrder($event.target.value)">
+         <option selected value="Ascending">Ascending</option>
+         <option value="Descending">Descending</option>
+      </select>
+   </div>
+
+   <div *ngIf="this.orderBy==='';else other">
+      <div *ngFor="let item of this.webService.similarItemDetail.item | slice:0:this.showLength">
+         <div *ngIf="this.webService.mobile; else notMobile" class="card text-white mb-2" style="background-color: #1F1F25">
+            <div class="card-header">
+               <img class="card-img-top similarItemImg" src="{{item.image}}">
+            </div>
+            <div class="card-body card-block">
+               <span class="card-text d-block">
+                  <a href="{{item.productURL}}" class="text-info" target="_blank">{{item.productName}}</a>
+               </span>
+               <span class="card-text d-block" style="color:#93fb96">Price: ${{item.price | number:'.2' }}</span>
+               <span class="card-text d-block" style="color:#ffd63c">Shipping Cost: ${{item.shippingCost | number:'.2' }}</span>
+               <span class="card-text d-block" >Day Left: {{item.dayLeft}}</span>
+            </div>
+         </div>
+         <ng-template #notMobile>
+            <div class="card text-white flex-row mb-2" style="background-color: #1F1F25">
+               <div class="card-header">
+                  <img class="similarItemImg" src="{{item.image}}">
+               </div>
+               <div class="card-block d-flex flex-column ml-3 mt-4">
+                  <span class="card-text"><a href="{{item.productURL}}" class="text-info" target="_blank">{{item.productName}}</a></span>
+                  <span class="card-text" style="color:#93fb96">Price: ${{item.price | number:'.2' }}</span>
+                  <span class="card-text" style="color:#ffd63c">Shipping Cost: ${{item.shippingCost | number:'.2' }}</span>
+                  <span class="card-text" >Day Left: {{item.dayLeft}}</span>
+               </div>
+            </div>
+         </ng-template>
+      </div>
+   </div>
+   <ng-template #other>
+      <div *ngFor="let item of this.webService.similarItemDetail.item | orderBy:this.orderBy:reverse | slice:0:this.showLength">
+         <div *ngIf="this.webService.mobile; else notMobile" class="card text-white mb-2" style="background-color: #1F1F25">
+            <div class="card-header">
+               <img class="card-img-top similarItemImg" src="{{item.image}}">
+            </div>
+            <div class="card-body card-block">
+               <span class="card-text d-block">
+                  <a href="{{item.productURL}}" class="text-info" target="_blank">{{item.productName}}</a>
+               </span>
+               <span class="card-text d-block" style="color:#93fb96">Price: ${{item.price | number:'.2' }}</span>
+               <span class="card-text d-block" style="color:#ffd63c">Shipping Cost: ${{item.shippingCost | number:'.2' }}</span>
+               <span class="card-text d-block" >Day Left: {{item.dayLeft}}</span>
+            </div>
+         </div>
+         <ng-template #notMobile>
+            <div class="card text-white flex-row mb-2" style="background-color: #1F1F25">
+               <div class="card-header">
+                  <img class="similarItemImg" src="{{item.image}}">
+               </div>
+               <div class="card-block d-flex flex-column ml-3 mt-4">
+                  <span class="card-text"><a href="{{item.productURL}}" class="text-info" target="_blank">{{item.productName}}</a></span>
+                  <span class="card-text" style="color:#93fb96">Price: ${{item.price | number:'.2' }}</span>
+                  <span class="card-text" style="color:#ffd63c">Shipping Cost: ${{item.shippingCost | number:'.2' }}</span>
+                  <span class="card-text" >Day Left: {{item.dayLeft}}</span>
+               </div>
+            </div>
+         </ng-template>
+      </div>
+   </ng-template>
+
+   <div class="col text-center" *ngIf="this.getSimilarItemNumber(this.webService.similarItemDetail.item.length)">
+      <button class="btn btn-dark-page" (click)="this.changeBtnText()">{{this.btnValue}}</button>
+   </div>
+
+</div>
+
+
+<ng-template #notFound>
+   <div class="alert alert-warning mt-4" role="alert">
+      No Records.
+   </div>
+</ng-template>

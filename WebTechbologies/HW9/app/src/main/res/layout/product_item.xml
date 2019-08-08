@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemLayout"
+    android:layout_width="@dimen/item_width"
+    android:layout_height="@dimen/item_height"
+    android:layout_margin="@dimen/padding4"
+    android:background="@drawable/item_background"
+    android:elevation="8dp"
+    android:backgroundTint="@color/colorWhite">
+
+
+    <ImageView
+        android:id="@+id/itemImage"
+        android:layout_width="@dimen/item_image_width"
+        android:layout_height="@dimen/item_image_width"
+        android:scaleType="fitXY"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/padding6"
+        android:contentDescription="@string/itemImage"
+        android:padding="@dimen/padding4"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/itemTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/itemImage"
+        android:layout_alignParentStart="true"
+        android:text="@string/itemTitle"
+        android:textAlignment="center"
+        android:padding="@dimen/padding4"
+        android:paddingStart="@dimen/padding6"
+        android:paddingEnd="@dimen/padding6"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        android:maxLines="3"  />
+
+    <TextView
+        android:id="@+id/itemZip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/itemShipping"
+        android:paddingStart="@dimen/padding12"
+        android:paddingEnd="0sp"
+        android:text="@string/itemZip"
+        android:textColor="@color/colorGray"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/itemCart"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_above="@+id/itemPrice"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/padding8"
+        android:layout_marginBottom="@dimen/padding16"
+        android:contentDescription="@string/cart"
+        app:srcCompat="@drawable/cart_plus" />
+
+    <TextView
+        android:id="@+id/itemShipping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/itemCondition"
+        android:paddingStart="@dimen/padding12"
+        android:paddingEnd="0sp"
+        android:paddingBottom="@dimen/padding16"
+        android:text="@string/itemShipping"
+        android:textColor="@color/colorGray"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/itemCondition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="19dp"
+        android:layout_toStartOf="@+id/itemPrice"
+        android:paddingStart="@dimen/padding8"
+        android:paddingEnd="4dp"
+        android:paddingBottom="@dimen/padding4"
+        android:text="@string/itemCondition"
+        android:textColor="@color/colorGrayLight"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/itemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:paddingStart="0dp"
+        android:paddingEnd="@dimen/padding8"
+        android:paddingBottom="@dimen/padding4"
+        android:text="@string/itemPrice"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

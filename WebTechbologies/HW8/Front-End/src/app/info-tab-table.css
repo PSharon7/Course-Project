@@ -1,0 +1,15 @@
+.carousel-container {
+    border: 10px solid black;
+}
+
+.carousel-control-btn {
+    background-color: #4E4E4E;
+}
+
+.carousel-control-btn:hover {
+    background-color: black;
+}
+
+table tbody tr th {
+    white-space: nowrap!important;
+}

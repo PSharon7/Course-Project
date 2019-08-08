@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tab4_itemLayout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/tab4_item_height"
+    android:layout_margin="@dimen/padding4"
+    android:background="@drawable/item_background"
+    android:elevation="8dp"
+    android:backgroundTint="@color/colorWhite">
+
+    <ImageView
+        android:id="@+id/tab4_itemImage"
+        android:layout_width="@dimen/item_image_width"
+        android:layout_height="@dimen/item_image_height"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/itemImage"
+        android:padding="@dimen/padding4"
+        android:scaleType="fitXY"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+
+    <TextView
+        android:id="@+id/tab4_itemTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding12"
+        android:layout_toEndOf="@+id/tab4_itemImage"
+        android:text="@string/itemTitle"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tab4_itemShipping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tab4_itemImage"
+        android:layout_marginTop="86dp"
+        android:layout_toEndOf="@+id/tab4_itemImage"
+        android:paddingStart="@dimen/padding8"
+        android:paddingEnd="0sp"
+        android:paddingBottom="@dimen/padding16"
+        android:text="@string/text"
+        android:textColor="@color/colorGray"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tab4_timeLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tab4_itemImage"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="86dp"
+        android:layout_marginRight="@dimen/padding40"
+        android:paddingStart="@dimen/padding8"
+        android:paddingEnd="0sp"
+        android:paddingBottom="@dimen/padding16"
+        android:text="@string/text"
+        android:textColor="@color/colorGray"
+        android:textSize="12sp" />
+
+
+    <TextView
+        android:id="@+id/tab4_itemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/text"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

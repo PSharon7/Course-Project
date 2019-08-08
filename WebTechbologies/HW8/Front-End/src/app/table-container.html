@@ -1,0 +1,32 @@
+<div class="container" *ngIf="this.loader.showLoader && !this.webService.zipcodesAutoing && this.webService.getGeoLocation">
+    <div *ngIf="this.webService.showLoaderSlide; else notShow" [@slideAnimation]="this.webService.slideLoader">
+        <loader></loader>
+    </div>
+    <ng-template #notShow>
+        <loader></loader>
+    </ng-template>
+</div>
+
+<div class="container" *ngIf="this.webService.getItemDetailId!=='';else notShowSlide" [@slideAnimation]="this.webService.slideResult">
+
+    <!--<div *ngIf="this.webService.showResults" class="text-right">-->
+        <!--<button [disabled]="this.webService.getItemDetailId===''" class="btn btn-light" (click)="this.webService.delayShowDetail();">-->
+            <!--Detail<i class="material-icons icon">keyboard_arrow_right</i>-->
+        <!--</button>-->
+    <!--</div>-->
+
+    <result-table *ngIf="this.webService.showResultTable" class="w-100"></result-table>
+    <wishlist-table *ngIf="this.webService.showWishlistTable" class="w-100"></wishlist-table>
+
+</div>
+
+<ng-template #notShowSlide>
+    <div class="container">
+        <result-table *ngIf="this.webService.showResultTable" class="w-100"></result-table>
+        <wishlist-table *ngIf="this.webService.showWishlistTable" class="w-100"></wishlist-table>
+    </div>
+</ng-template>
+
+<div class="container" *ngIf="!this.loader.showLoader" [@slideAnimation]="this.webService.slideDetail">
+    <detail-container *ngIf="this.webService.showInfoTable" class="w-100"></detail-container>
+</div>

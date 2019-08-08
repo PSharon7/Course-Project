@@ -1,0 +1,33 @@
+<div class="row" *ngIf="this.webService.photoDetail!==undefined && this.webService.photoDetail.size!=0; else notFound">
+   <div *ngIf="this.webService.mobile; else notMobile" class="w-100 pl-2 pr-2">
+      <a *ngFor="let image of this.webService.photoDetail.image;" href="{{image.link}}" target="_blank">
+         <img class="photo-detail" src="{{image.link}}">
+      </a>
+   </div>
+
+   <ng-template #notMobile>
+      <div class="column">
+         <a *ngFor="let image of this.webService.photoDetail.image0;" href="{{image.link}}" target="_blank">
+            <img class="photo-detail" src="{{image.link}}">
+         </a>
+      </div>
+
+      <div class="column" *ngIf="this.webService.photoDetail.image1.length>0">
+         <a *ngFor="let image of this.webService.photoDetail.image1;" href="{{image.link}}" target="_blank">
+            <img class="photo-detail" src="{{image.link}}">
+         </a>
+      </div>
+
+      <div class="column" *ngIf="this.webService.photoDetail.image2.length>0">
+         <a *ngFor="let image of this.webService.photoDetail.image2;" href="{{image.link}}" target="_blank">
+            <img class="photo-detail" src="{{image.link}}">
+         </a>
+      </div>
+   </ng-template>
+</div>
+
+<ng-template #notFound>
+   <div class="alert alert-warning mt-4" role="alert">
+      No Records.
+   </div>
+</ng-template>
